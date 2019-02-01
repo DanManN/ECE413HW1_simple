@@ -22,31 +22,35 @@ function [soundOut] = create_scale( scaleType,temperament, root, constants )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO: Add all relavant constants 
 
 switch scaleType
     case {'Major','major','M','Maj','maj'}
-	% TODO: Complete with interval pattern for the major scale
+        scalepatt = [3 2 1 3 2 3 1];
     case {'Minor','minor','m','Min','min'}
-	% TODO: Complete with interval pattern for the minor scale
+        scalepatt = [3 1 2 3 1 3 2];
     case {'Harmonic', 'harmonic', 'Harm', 'harm'}
 	% EXTRA CREDIT
     case {'Melodic', 'melodic', 'Mel', 'mel'}
 	% EXTRA CREDIT
     otherwise
-        error('Inproper scale specified');
+        error('Inproper scale specified')
 end
 
 switch temperament
     case {'just','Just'}
-	% TODO: Pull the Just tempered ratios based on the pattern from the scales
+		scalerat = (9/8).*(scalepatt==3)+(10/9).*(scalepatt==2)+(16/15).*(scalepatt==1);
     case {'equal','Equal'}
-	% TODO: Pull the equal tempered ratios based on the pattern from the scales
+		scalerat = (4^(1/12)).*(scalepatt==3 | scalepatt==2)+(2^(1/12)).*(scalepatt==1);
     otherwise
         error('Improper temperament specified')
 end
 
+tonic = note2freq(root);
 
-% Create the vector based on the notes
+scale = [1 cumprod(scalerat)];
+soundOut = [];
+for rat = scale
+    soundOut = [soundOut sin(2*pi*tonic*rat*(0:1/constants.fs:constants.durationScale))];
+end
 
 end

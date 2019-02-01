@@ -16,7 +16,6 @@ clear functions
 clear variables
 dbstop if error
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,7 +26,7 @@ constants.durationChord=3;          % Duration of chords
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Question 2 - scales
+%% Question 2 - scales
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [soundMajorScaleJust]=create_scale('Major','Just','A',constants);
 [soundMajorScaleEqual]=create_scale('Major','Equal','A',constants);
@@ -36,15 +35,20 @@ constants.durationChord=3;          % Duration of chords
 
 disp('Playing the Just Tempered Major Scale');
 soundsc(soundMajorScaleJust,constants.fs);
+wait
+%waitforbuttonpress
 disp('Playing the Equal Tempered Major Scale');
 soundsc(soundMajorScaleEqual,constants.fs);
+%waitforbuttonpress
 disp('Playing the Just Tempered Minor Scale');
 soundsc(soundMinorScaleJust,constants.fs);
+%waitforbuttonpress
 disp('Playing the Equal Tempered Minor Scale');
 soundsc(soundMinorScaleEqual,constants.fs);
+%waitforbuttonpress
 fprintf('\n');
 
-% EXTRA CREDIT - Melodic and Harmonic scales
+%% EXTRA CREDIT - Melodic and Harmonic scales
 [soundHarmScaleJust]=create_scale('Harmonic','Just','A',constants);
 [soundHarmScaleEqual]=create_scale('Harmonic','Equal','A',constants);
 [soundMelScaleJust]=create_scale('Melodic','Just','A',constants);
@@ -61,11 +65,11 @@ soundsc(soundMelScaleEqual,constants.fs);
 fprintf('\n');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Question 3 - chords
+%% Question 3 - chords
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fund = 'A'; % need this to determine wavelength for plots
 
-% major and minor chords
+%% major and minor chords
 [soundMajorChordJust]=create_chord('Major','Just',fund,constants);
 [soundMajorChordEqual]=create_chord('Major','Equal',fund,constants);
 [soundMinorChordJust]=create_chord('Minor','Just',fund,constants);
@@ -81,7 +85,7 @@ disp('Playing the Equal Tempered Minor Chord');
 soundsc(soundMinorChordEqual,constants.fs);
 fprintf('\n');
 
-% assorted other chords
+%% assorted other chords
 [soundPowerChordJust]=create_chord('Power','Just',fund,constants);
 [soundPowerChordEqual]=create_chord('Power','Equal',fund,constants);
 [soundSus2ChordJust]=create_chord('Sus2','Just',fund,constants);
@@ -116,7 +120,7 @@ disp('Playing the Equal Tempered Min7 Chord');
 soundsc(soundMin7ChordEqual,constants.fs);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Question 4 - plots
+%% Question 4 - plots
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % determine fundamental frequency
 
