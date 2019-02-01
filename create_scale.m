@@ -25,29 +25,30 @@ function [soundOut] = create_scale( scaleType,temperament, root, constants )
 
 switch scaleType
     case {'Major','major','M','Maj','maj'}
-        scalepatt = [3 2 1 3 2 3 1];
+        scalepatt = [3 2 1 3 2 3 1 ; 3 2 1 3 2 3 1];
     case {'Minor','minor','m','Min','min'}
-        scalepatt = [3 1 2 3 1 3 2];
+        scalepatt = [3 1 2 3 1 3 2 ; 3 1 2 3 1 3 2];
     case {'Harmonic', 'harmonic', 'Harm', 'harm'}
-	% EXTRA CREDIT
+        scalepatt = [3 1 2 3 1 4 1 ; 3 1 2 3 1 4 1];
     case {'Melodic', 'melodic', 'Mel', 'mel'}
-	% EXTRA CREDIT
+        scalepatt = [3 1 2 3 2 3 1 ; 3 1 2 3 1 3 2];
     otherwise
         error('Inproper scale specified')
 end
 
 switch temperament
     case {'just','Just'}
-		scalerat = (9/8).*(scalepatt==3)+(10/9).*(scalepatt==2)+(16/15).*(scalepatt==1);
+		scalerat = (9/8)*(scalepatt==3)+(10/9)*(scalepatt==2)+(16/15)*(scalepatt==1)+(6/5)*(scalepatt==4);
     case {'equal','Equal'}
-		scalerat = (4^(1/12)).*(scalepatt==3 | scalepatt==2)+(2^(1/12)).*(scalepatt==1);
+		scalerat = (4^(1/12))*(scalepatt==3 | scalepatt==2)+(2^(1/12))*(scalepatt==1)+(8^(1/12))*(scalepatt==4);
     otherwise
         error('Improper temperament specified')
 end
 
 tonic = note2freq(root);
 
-scale = [1 cumprod(scalerat)];
+scale = cumprod(scalerat,2);
+scale = [1 scale(1,:) scale(2,end:-1:1) 1];
 soundOut = [];
 for rat = scale
     soundOut = [soundOut sin(2*pi*tonic*rat*(0:1/constants.fs:constants.durationScale))];

@@ -35,17 +35,16 @@ constants.durationChord=3;          % Duration of chords
 
 disp('Playing the Just Tempered Major Scale');
 soundsc(soundMajorScaleJust,constants.fs);
-wait
-%waitforbuttonpress
+waitforbuttonpress
 disp('Playing the Equal Tempered Major Scale');
 soundsc(soundMajorScaleEqual,constants.fs);
-%waitforbuttonpress
+waitforbuttonpress
 disp('Playing the Just Tempered Minor Scale');
 soundsc(soundMinorScaleJust,constants.fs);
-%waitforbuttonpress
+waitforbuttonpress
 disp('Playing the Equal Tempered Minor Scale');
 soundsc(soundMinorScaleEqual,constants.fs);
-%waitforbuttonpress
+waitforbuttonpress
 fprintf('\n');
 
 %% EXTRA CREDIT - Melodic and Harmonic scales
@@ -56,12 +55,16 @@ fprintf('\n');
 
 disp('Playing the Just Tempered Harmonic Scale');
 soundsc(soundHarmScaleJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Harmonic Scale');
 soundsc(soundHarmScaleEqual,constants.fs);
+waitforbuttonpress
 disp('Playing the Just Tempered Melodic Scale');
 soundsc(soundMelScaleJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Melodic Scale');
 soundsc(soundMelScaleEqual,constants.fs);
+waitforbuttonpress
 fprintf('\n');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
