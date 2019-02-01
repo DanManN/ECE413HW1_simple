@@ -72,7 +72,7 @@ fprintf('\n');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fund = 'A'; % need this to determine wavelength for plots
 
-%% major and minor chords
+% major and minor chords
 [soundMajorChordJust]=create_chord('Major','Just',fund,constants);
 [soundMajorChordEqual]=create_chord('Major','Equal',fund,constants);
 [soundMinorChordJust]=create_chord('Minor','Just',fund,constants);
@@ -80,12 +80,16 @@ fund = 'A'; % need this to determine wavelength for plots
 
 disp('Playing the Just Tempered Major Chord');
 soundsc(soundMajorChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Major Chord');
 soundsc(soundMajorChordEqual,constants.fs);
+waitforbuttonpress
 disp('Playing the Just Tempered Minor Chord');
 soundsc(soundMinorChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Minor Chord');
 soundsc(soundMinorChordEqual,constants.fs);
+waitforbuttonpress
 fprintf('\n');
 
 %% assorted other chords
@@ -103,24 +107,34 @@ fprintf('\n');
 
 disp('Playing the Just Tempered Power Chord');
 soundsc(soundPowerChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Power Chord');
 soundsc(soundPowerChordEqual,constants.fs);
+waitforbuttonpress
 disp('Playing the Just Tempered Sus2 Chord');
 soundsc(soundSus2ChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Sus2 Chord');
 soundsc(soundSus2ChordEqual,constants.fs);
+waitforbuttonpress
 disp('Playing the Just Tempered Sus4 Chord');
 soundsc(soundSus2ChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Sus4 Chord');
 soundsc(soundSus2ChordEqual,constants.fs);
+waitforbuttonpress
 disp('Playing the Just Tempered Dom7 Chord');
 soundsc(soundDom7ChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Dom7 Chord');
 soundsc(soundDom7ChordEqual,constants.fs);
+waitforbuttonpress
 disp('Playing the Just Tempered Min7 Chord');
 soundsc(soundMin7ChordJust,constants.fs);
+waitforbuttonpress
 disp('Playing the Equal Tempered Min7 Chord');
 soundsc(soundMin7ChordEqual,constants.fs);
+waitforbuttonpress
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Question 4 - plots

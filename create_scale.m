@@ -46,12 +46,9 @@ switch temperament
 end
 
 tonic = note2freq(root);
-
 scale = cumprod(scalerat,2);
-scale = [1 scale(1,:) scale(2,end:-1:1) 1];
-soundOut = [];
-for rat = scale
-    soundOut = [soundOut sin(2*pi*tonic*rat*(0:1/constants.fs:constants.durationScale))];
-end
+scale = [1; scale(1,:)'; scale(2,end:-1:1)'; 1];
+scale = sin(2*pi*tonic*scale*(0:1/constants.fs:constants.durationScale));
+soundOut = reshape(scale',1,[]);
 
 end
