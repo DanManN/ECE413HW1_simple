@@ -27,26 +27,26 @@ function [soundOut] = create_chord( chordType,temperament, root, constants )
 
 switch chordType
     case {'Major','major','M','Maj','maj'}
-        scalepatt = [3 2 1 3 2 3 1]
-        chordpatt = [1 3 5]
+        scalepatt = [3 2 1 3 2 3 1];
+        chordpatt = [1 3 5];
     case {'Minor','minor','m','Min','min'}
-        scalepatt = [3 1 2 3 1 3 2]
-        chordpatt = [1 3 5]
+        scalepatt = [3 1 2 3 1 3 2];
+        chordpatt = [1 3 5];
     case {'Power','power','pow'}
-        scalepatt = [3 2 1 3 2 3 1]
-        chordpatt = [1 5]
+        scalepatt = [3 2 1 3 2 3 1];
+        chordpatt = [1 5];
     case {'Sus2','sus2','s2','S2'}
-         scalepatt = [3 2 1 3 2 3 1]
-        chordpatt = [1 2 5]
+        scalepatt = [3 2 1 3 2 3 1];
+        chordpatt = [1 2 5];
     case {'Sus4','sus4','s4','S4'}
-        scalepatt = [3 2 1 3 2 3 1]
-        chordpatt = [1 4 5]
+        scalepatt = [3 2 1 3 2 3 1];
+        chordpatt = [1 4 5];
     case {'Dom7','dom7','Dominant7', '7'}
-        scalepatt = [3 2 1 3 2 3 1]
-        chordpatt = [1 3 5 7]
+        scalepatt = [3 2 1 3 2 3 1];
+        chordpatt = [1 3 5 7];
     case {'Min7','min7','Minor7', 'm7'}
-        scalepatt = [3 1 2 3 1 3 2]
-        chordpatt = [1 3 5 7]
+        scalepatt = [3 1 2 3 1 3 2];
+        chordpatt = [1 3 5 7];
     otherwise
         error('Inproper chord specified');
 end

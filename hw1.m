@@ -140,20 +140,62 @@ waitforbuttonpress
 %% Question 4 - plots
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % determine fundamental frequency
+lambda = 1/note2freq(fund)
+t1 = (0:1/constants.fs:lambda);
+t10 = (0:1/constants.fs:20*lambda);
+
+subplot(2,1,1)
+plot(t1,soundMajorChordJust(1:length(t1)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MajorChordJust')
+axis tight
+subplot(2,1,2)
+plot(t10,soundMajorChordJust(1:length(t10)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MajorChordJust')
+axis tight
 
 
-% Major chords
-%   Single Wavelength
-%     just tempered
-%     equal tempered
-%   Tens of Wavelengths
-%     just tempered
-%     equal tempered
+figure
+subplot(2,1,1)
+plot(t1,soundMajorChordEqual(1:length(t1)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MajorChordEqual')
+axis tight
+subplot(2,1,2)
+plot(t10,soundMajorChordEqual(1:length(t10)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MajorChordEqual')
+axis tight
 
-% Minor chords
-%   Single Wavelength
-%     just tempered
-%     equal tempered
-%   Tens of Wavelengths
-%     just tempered
-%     equal tempered
+figure
+subplot(2,1,1)
+plot(t1,soundMinorChordJust(1:length(t1)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MinorChordJust')
+axis tight
+subplot(2,1,2)
+plot(t10,soundMinorChordJust(1:length(t10)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MinorChordJust')
+axis tight
+
+figure
+subplot(2,1,1)
+plot(t1,soundMinorChordEqual(1:length(t1)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MinorChordEqual')
+axis tight
+subplot(2,1,2)
+plot(t10,soundMinorChordEqual(1:length(t10)))
+xlabel('Time (s)')
+ylabel('Amplitude')
+title('MinorChordEqual')
+axis tight
