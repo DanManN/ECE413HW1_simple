@@ -22,6 +22,8 @@ function [soundOut] = create_scale( scaleType,temperament, root, constants )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+justrat = [16/15 10/9 9/8 6/5 5/4 4/3 45/32 64/45 3/2 8/5 5/3 7/4 16/9 9/5 15/8 2];
+equalrat = 2.^(1:12).^(1/12);
 
 switch scaleType
     case {'Major','major','M','Maj','maj'}
@@ -38,9 +40,9 @@ end
 
 switch temperament
     case {'just','Just'}
-		scalerat = (9/8)*(scalepatt==3)+(10/9)*(scalepatt==2)+(16/15)*(scalepatt==1)+(6/5)*(scalepatt==4);
+        scalerat = justrat(scalepatt);
     case {'equal','Equal'}
-		scalerat = (4^(1/12))*(scalepatt==3 | scalepatt==2)+(2^(1/12))*(scalepatt==1)+(8^(1/12))*(scalepatt==4);
+        scalerat = equalrat(round((scalepatt+1)/2));
     otherwise
         error('Improper temperament specified')
 end
